@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Attendance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style_x.css') }}">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='scripts/att.js') }}"></script>
+
+  <style>
+	#parallax {
+		/* The image used */
+		background-image: url("../static/images/ucd1.jpg");
+
+		/* Set a specific height */
+		min-height: 300px;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+
+		/* Create the parallax scrolling effect */
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	#content {
+		color: #006dcc;
+	}
+
+	#big_letters {
+		font-family: League Gothic;
+		font-size: 80px;
+	}
+
+	#small_letters {
+		font-size: 20px;
+	}
+	
+	#chart1 {
+            width : 1000px;
+            height : 500px;
+        }
+
+	#chart2 {
+            width : 1000px;
+            height : 500px;
+        }
+
+  </style>
+</head>
+
+<body>
+
+<div id="parallax">
+	<div id="content">
+		<p><span id="big_letters">Team Harmony</span></p>
+		<p><span id="small_letters">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Measuring Room Occupancy Using WiFi</span></p>
+	</div>
+</div>
+
+<br><br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<form action="/modules" method="POST">
+				<div class="form-group">
+					<label for="code">Select Module:</label>
+					<select name="code" onchange="this.form.submit()">
+                                                <option>---</option>
+						<option>COMP10110</option>
+						<option>COMP10130</option>
+						<option>COMP10280</option>
+						<option>COMP20010</option>
+						<option>COMP20020</option>
+						<option>COMP20070</option>
+						<option>COMP20130</option>
+						<option>COMP30010</option>
+						<option>COMP30060</option>
+						<option>COMP30070</option>
+						<option>COMP30080</option>
+						<option>COMP30110</option>
+						<option>COMP30120</option>
+						<option>COMP30170</option>
+						<option>COMP30190</option>
+						<option>COMP30220</option>
+						<option>COMP30240</option>
+						<option>COMP30250</option>
+						<option>COMP30260</option>
+						<option>COMP30520</option>
+						<option>COMP40370</option>
+						<option>COMP40660</option>
+						<option>COMP41110</option>
+						<option>COMP41450</option>
+						<option>COMP41690</option>
+						<option>COMP47290</option>
+						<option>COMP47300</option>
+						<option>ENVB30110</option>
+						<option>IS40640</option>
+						<option>MATH10130</option>
+						<option>MATH10200</option>
+						<option>SCI30060</option>
+						<option>STAT40150</option>
+					</select>
+				</div>
+			</form>
+		</div>
+	 
+		<div class="col-sm-6">
+			<div class="stay_right">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" style="float:right; margin-right:1cm;" type="button" data-toggle="dropdown" aria-label="Menu">
+					<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="http://52.209.212.197:5050/home">Home</a></li>
+						<li><a href="http://52.209.212.197:5050/events">Events</a></li>
+						<li><a href="http://52.209.212.197:5050/data">Data</a></li>
+						<li><a href="http://52.209.212.197:5050/modules">Modules</a></li>
+						<li><a href="http://52.209.212.197:5050/rooms">Rooms</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br><br>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>Module: {{ module }}</h3>
+			<h4>Registered Students: {{ students }}</h4>
+			<h4>Locations: {{ room }}</h4>
+			<h4>Times: {{ day }} {{ time }}<h4>
+			<br>
+		</div>
+	
+		<div class="col-sm-12">
+                        <h3>Attendance Over Period</h3>
+                        <div id="container-fluid" style="height:400px"></div>
+                </div>
+
+                <div class="col-sm-12">
+                  <h3>Attendance By Time Of Day</h3>
+                  <div id="columns1" style="height:400px"></div>
+                </div>
+
+                <div class="col-sm-12">
+                  <h3>Attendance By Day Of Week</h3>
+                  <div id="columns2" style="height:400px"></div>
+                </div>
+
+                <br><br>
+
+                <div class="col-sm-12">
+                        <h3>Module By Popularity</h3>
+                        <br>
+                        <div id="table_div" style="width: 50%; margin: 0 auto">
+                                <div class="scroll">
+                                        <ul>
+                                                <li>1 &nbsp&nbsp&nbsp COMP47350</li>
+                                                <li>2 &nbsp&nbsp&nbsp COMP10110</li>
+                                                <li><b>3 &nbsp&nbsp&nbsp COMP10130</b></li>
+                                                <li>4 &nbsp&nbsp&nbsp COMP27250</li>
+                                                <li>5 &nbsp&nbsp&nbsp COMP43850</li>
+                                                <li>6 &nbsp&nbsp&nbsp COMP3700</li>
+                                                <li>7 &nbsp&nbsp&nbsp COMP3250</li>
+                                                <li>8 &nbsp&nbsp&nbsp COMP10500</li>
+                                                <li>9 &nbsp&nbsp&nbsp COMP36500</li>
+                                                <li>10 &nbsp&nbsp&nbsp COMP21050</li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+
+		<br><br>
+		<br><br>
+	
+	</div>
+</div>
+<br><br>
+
+<footer class="footer">
+	<div class="container">
+		<div class="credits">
+			<img src="{{ url_for('static',filename='images/UCD_logo.png') }}" />
+			<span style="float:right; margin-right:3cm;"> 
+				&nbsp;
+				<br>
+				<a href="mailto:andrew.sweeney.1@ucdconnect.ie">Team Harmony</a>
+			</span>
+		</div>
+	</div>
+</footer>
+<br>
+
+
+</body>
+</html>

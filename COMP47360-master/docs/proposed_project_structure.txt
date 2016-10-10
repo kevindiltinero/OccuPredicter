@@ -1,0 +1,40 @@
+/PROJECT_ROOT
+│
+├──/APP
+│   ├──/Static
+│   │   ├──/Images
+│   │   ├──/Css
+│   │   └──/Scripts    
+│   │
+│   └──/Templates
+│       ├──page_base.html
+│       └──index.html
+│
+├──/DATA
+│   ├──/Input_Wifi
+│   │   ├──/Completed
+│   │   └──/Failed
+│   │
+│   ├──/Input_Ground
+│   │   ├──/Completed
+│   │   └──/Failed
+│   │
+│   ├──/Input_Timetable
+│   │   ├──/Completed
+│   │   └──/Failed
+│   │
+│   └──/Cleaned_Data
+│
+├──/PARSER
+│   ├──Wifi_Parser.py
+│   ├──Timetable_Parser.py
+│   └──Ground_Parser.py
+│ 
+├──/FLASK
+│   └──(Environment files)
+│ 
+├──README.md
+│ 
+├──requirements.txt
+│ 
+└──run.py

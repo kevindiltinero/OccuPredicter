@@ -1,0 +1,107 @@
+/* TOP NAV BAR */
+.navbar-light {
+        padding:8px;
+        z-index:9999;
+        margin-bottom:5px;
+}
+.navbar-light .navbar-toggle .icon-bar {
+        background-color:orange;
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-nav li a{
+        color:white;
+        border:1px solid transparent; 
+}
+.navbar-light .navbar-nav li a {
+        padding:20px 30px;
+}
+.navbar-light li a:hover {
+        border:1px solid orange;
+        border-radius:5px;
+        background-color:#0066cc;
+        color:orange;
+}
+.navbar-light .navbar-nav > li {
+        border-left:1px solid lightblue;
+        font-weight:bold;
+}
+.navbar-light .navbar-nav > li:nth-child(1) {
+        border-left:none;
+}
+.navbar-light .glyphicon {
+        color:orange;
+        padding-right: 10px;
+}
+/* BOTTOM NAV BAR */
+.navbar-default {
+        padding:50px 0px;
+        border-top:2px solid #ccc;
+        margin-bottom:0px;
+        margin-top:5px;
+}
+.navbar-default .navbar-brand {
+        position:absolute;
+        top:20px;
+        left:20px;
+}
+.navbar-default .navbar-nav > li {
+        border-left:1px solid lightgray;
+        padding:0px 20px;
+        font-weight:bold;
+}
+.navbar-default .navbar-nav > li:nth-child(1) {
+        border-left:none;
+}
+/* HOME PAGE */
+/* Remove padding and margin of row elements to allow proper side-by-side display */
+.row > div {
+        margin:0px;
+        padding:0px;
+        overflow:hidden;
+}
+.row > div > img {
+        position:relative;
+}
+
+/* Jumbotrons */
+.jumbotron {
+        margin:10px 0px;
+}
+
+#map-container {
+        position:relative;
+}
+#B002 {
+        position:absolute;
+        top:24.3%;
+        left:21.1%;
+}
+#B003 {
+        position:absolute;
+        top:24.3%;
+        left:35.4%;
+}
+#B004 {
+        position:absolute;
+        top:24.3%;
+        left:48.9%;
+}
+#B106 {
+        position:absolute;
+        top:61.6%;
+        left:47.7%;
+}
+#B108 {
+        position:absolute;
+        top:61.6%;
+        left:17.5%;
+}
+#B109 {
+        position:absolute;
+        top:61.6%;
+        left:32.7%;
+}
+
+.sidebar select {
+        float:right;
+        width:60%;
+}

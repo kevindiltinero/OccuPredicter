@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Harmony | Events</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/events.css') }}">
+</head>
+<body>
+
+
+    <!--Navigation Bar -->
+    <!--Navigation Bar -->
+    <nav>
+        <div>
+          <ul id="left-nav">
+            <li><img style="position:relative;left:3px;top:17px;float:left;"src="{{ url_for('static', filename='images/brand.png') }}" alt="Harmony"/><a href="welcome">Team Harmony</a></li>
+            <li><a href="home">Home</a></li>
+            <li><a href="events">Events</a></li>
+            <li><a href="data">Data</a></li>
+            <li><a href="modules">Modules</a></li>
+            <li><a href="rooms">Rooms</a></li>
+          </ul>
+          <ul id="right-nav">
+            <li><img style="position:relative;left:3px;top:17px;float:left;" src="{{ url_for('static', filename='images/login.png') }}" alt="login"/><a href="#">Login</a></li>
+            <li><img style="position:relative;left:3px;top:17px;float:left;" src="{{ url_for('static', filename='images/signup.png') }}" alt="signup"/><a href="#">Sign Up</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+   <!-- THE FORMS -->
+    <!--WTform to send data over to Flask. -->
+    <h1 id="hello" style="margin-left:640px;"></h1>
+    <!-- Some Random Extra to help form-->
+    {% from "_formhelpers.html" import render_field %}
+    <div style="width:330px; height:600px; border-radius:5px; border:1px solid black; background-color: #337ab7; margin:auto;">
+        <h1 style="margin-left: 20px;">What's the event?</h1>
+        <!--When the person presses button calls app route -->
+        <form method=post action="/hello">
+            <!--Grabs the variable, form class, say hello attribute, renders with Jinja -->
+            <dl>
+            {{ render_field(form.event) }}
+            </dl>
+            <dl>
+            {{ render_field(form.sayhello) }}
+            </dl>
+            <dl>
+            {{ render_field(form.saygoodbye) }}
+            </dl>
+            <dl>
+            {{ render_field(form.slice) }}
+            </dl>
+            <dl>
+            {{ render_field(form.description) }}
+            </dl>
+            <dl>
+            <input style="margin-left:80px;padding:10px;font-size:20px;;" type=submit value='Save Event' name='submit_btn'>
+            </dl>
+        </form>
+    </div>
+    <button id="clear_events"><a href="clear">Clear current events</a></button>
+
+
+
+<!-- THIS IS THE FOOTER -->
+ <footer style="margin-top:10px;">
+      <a href="#"><img style="float:left;max-height:200px;max-width:400px;" alt="University College Dublin" src="{{ url_for('static', filename='images/csiLogo.png') }}"></a>
+      <ul >
+        <li><a href="https://github.com/mcnultmi">Michael McNulty</a></li>
+        <li><a href="https://github.com/kevindiltinero">Kevin Fitzpatrick</a></li>
+        <li><a href="https://github.com/IwonaSarna">Iwona Sarna</a></li>
+        <li><a href="https://github.com/asweeney99">Andrew Sweeney</a></li>
+      </ul>
+</footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+//Attendance Ranked By Module Scrollbar Styling
+.scroll {
+    width: 100px;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    position: relative;
+}
+
+.scroll:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background-image: linear-gradient(to top, rgba(255,255,255,0), #fff);
+    pointer-events: none;
+}
+
+.scroll:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+    pointer-events: none;
+}
+
+.scroll ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 140px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.scroll ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 5px;
+}
+
+.scroll ul::-webkit-scrollbar-thumb {
+    background: #ccc;
+}
+
+.scroll li {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.scroll li:last-child {
+    border-bottom: none;
+}
+
+//Footer Styling
+.footer {
+    margin-bottom: 50px;
+}
+
+.credits > img,
+.credits > p {
+    display: inline-block;
+}
+
+

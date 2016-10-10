@@ -1,0 +1,25 @@
+# Ignore various folders relating to virtual environments
+flask_env
+flask
+venv
+
+# Prevent all of the Wifi Log files syncing every time. These should be stored locally.
+data/raw_wifi
+data/CSI WiFiLogs
+data/CSI WiFiLogs.zip
+
+# Ignore compiled Python
+*.pyc
+
+# Ignore Vim swap files
+*.swp
+*.swo
+
+# Ignore iPython checkpoint files
+.ipynb_checkpoints/
+Model/.ipynb_checkpoints/
+
+# Ignore files and changes generated from "train.py"
+occupancyclassifiers/
+docs/EncodedABT.csv
+docs/TableABT.csv

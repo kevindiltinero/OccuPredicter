@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Harmony | {{ title }}</title>
+  <meta charset="utf-8">
+  <!-- Set width based on device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap Javascript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- Customise collapse point for footer information -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
+  <!-- Standard stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/v2.css') }}">
+  <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcollapse" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="welcome"><span class="glyphicon glyphicon-signal"></span>Team Harmony</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navcollapse">
+      <ul class="nav navbar-nav">
+        <li><a href="home">Home</a></li>
+        <li><a href="events">Events</a></li>
+        <li><a href="data">Data</a></li>
+        <li><a href="modules">Modules</a></li>
+        <li><a href="rooms">Rooms</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+        {% block content %} {% endblock %}
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#footercollapse" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img alt="University College Dublin" src="{{ url_for('static', filename='images/csiLogo.png') }}"/></a>
+      <div class="response" style="display:none;">
+              <img alt="UCD" src="{{ url_for('static', filename='images/ucd_logo.png') }}"/>
+              <p>University College Dublin</br>School of Computer Science and Informatics</p>
+      </div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="footercollapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/asweeney99">Andrew Sweeney</span></a></li>
+        <li><a href="https://github.com/IwonaSarna">Iwona Sarna</a></li>
+        <li><a href="https://github.com/kevindiltinero">Kevin Fitzpatrick</a></li>
+        <li><a href="https://github.com/mcnultmi">Michael McNulty</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+</body>
+</html>

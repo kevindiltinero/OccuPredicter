@@ -1,0 +1,676 @@
+/********************************** MICHAEL'S GENERAL STYLING FOR THE EVENTS PAGE *********************************/
+body {
+    background-image: url('../images/Contacttexture2.jpg');
+    margin:0px;
+}
+
+/********************************** MICHAEL'S NAVIGATION BAR STYLING *********************************/
+nav {
+        background-color:#337ab7;
+        border-bottom-color:transparent;
+        border-bottom-left-radius:4px;
+        border-bottom-right-radius:4px;
+        z-index:9999;
+        position:relative;
+        padding:8px;
+        min-height:80px;
+        margin-bottom:5px;
+        line-height:20px;
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+        display:block;
+}
+nav ul li a {
+        color:white;
+        text-decoration:none;
+        padding:20px 30px;
+        display:block;
+        border:1px solid transparent;
+        border-radius:8px;
+}
+nav ul li a:hover {
+        color:orange;
+        font-weight:bold;
+        border:1px solid orange;
+        background-color:#0066cc;
+        border-radius:8px;
+}
+#left-nav li {
+        border-left:1px solid lightblue;
+}
+#left-nav li:nth-child(1) {
+        border-left:none;
+}
+#right-nav li {
+        border-left:none;
+}
+#right-nav li:nth-child(1) {
+        border-left:1px solid lightblue;
+}
+#left-nav {
+        list-style-type:none;
+}
+#left-nav li {
+        display:block;
+        float:left;
+}
+#right-nav {
+        list-style-type:none;
+}
+#right-nav li {
+        display:block;
+        float:right;
+}
+
+/********************************** MICHAEL'S FOOTER BAR STYLING *********************************/
+footer {
+        background-color:#f8f8f8;
+        height:128px;
+        padding-top:40px;
+        padding-left:20px;
+        padding-right:10px;
+        border:1px solid rgb(231,231,231);
+        border-top:2px solid rgb(204,204,204);
+}
+footer ul {
+        list-style-type:none;
+}
+footer ul li {
+        float:right;
+}
+footer ul li a {
+        color:#777;
+        font-weight:bold;
+        text-decoration:none;
+        padding:15px;
+        display:block;
+}
+footer ul li {
+        border-right:1px solid lightgray;
+}
+footer ul li:nth-child(1) {
+        border:none;
+}
+footer ul li a:hover {
+        color:#222;
+}
+
+/********************************** MICHAEL'S FORM STYLING *********************************/
+form {
+    display:inline-block;
+}
+dl {
+    float:left;
+    margin:24px;
+    padding:0;
+    display:block;
+}
+#formcontainer{
+    width:1200px;
+    font-size:20px;
+    height:100px;
+    margin:auto;
+    margin-top:30px;
+    border:solid black 2px;
+    background-color:white;
+    border-radius:5px;
+}
+
+
+/********************************** COMPUTER SCIENCE MAP WITH SLICES STYLING *********************************/
+#map {
+    width : 900px;
+    height : 700px;
+    margin-left: 240px;
+    margin-top: 30px;
+    border : solid black 2px;
+    position : relative;
+    display : none;
+    font-size: 0;
+    background-image: url('../images/fullmap.jpg');
+}
+#sliceone {
+    width : 900px;
+    height : 150px;
+    background-image: url('../images/CS1_01.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#slicetwo {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 232px;
+    height : 180px;
+    background-image: url('../images/CS1_02.png');
+    float: left;
+    display: block;
+}
+#slicethree {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 157px;
+    height : 180px;
+    background-image: url('../images/CS1_03.png');
+    float: left;
+    display: block;
+}
+#slicefour {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 155px;
+    height : 180px;
+    background-image: url('../images/CS1_04.png');
+    float: left;
+    display: block;
+}
+#slicefive {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 233px;
+    height : 180px;
+    background-image: url('../images/CS1_05.png');
+    float: left;
+    display: block;
+}
+#slicesix {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 123px;
+    height : 180px;
+    background-image: url('../images/CS1_06.png');
+    float: left;
+    display: block;
+}
+#sliceseven {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 900px;
+    height : 86px;
+    background-image: url('../images/CS1_07.png');
+    float: left;
+    display: block;
+}
+#sliceeight {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 192px;
+    height : 201px;
+    background-image: url('../images/CS1_08.png');
+    float: left;
+    display: block;
+}
+#slicenine {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 167px;
+    height : 202px;
+    background-image: url('../images/CS1_09.png');
+    float: left;
+    display: block;
+}
+#sliceten {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 168px;
+    height : 202px;
+    background-image: url('../images/CS1_10.png');
+    float: left;
+    display: block;
+}
+#sliceeleven {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 260px;
+    height : 202px;
+    background-image: url('../images/CS1_11.png');
+    float: left;
+    display: block;
+}
+#slicetwelve {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 113px;
+    height : 202px;
+    background-image: url('../images/CS1_12.png');
+    float: left;
+    display: block;
+}
+#slicethirteen {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 192px;
+    height : 82px;
+    background-image: url('../images/CS1_13.png');
+    float: left;
+    display: block;
+}
+#slicefourteen {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    box-sizing: border-box;
+    width : 708px;
+    height : 82px;
+    background-image: url('../images/CS1_14.png');
+    float: left;
+    display: block;
+}
+
+/********************************** SCIENCE HUB WITH SLICES STYLING *********************************/
+#maphub {
+    display: none;
+    width : 900px;
+    height : 700px;
+    margin-left: 240px;
+    margin-top: 60px;
+    border : solid black 2px;
+    position : relative;
+    font-size: 0;
+    background-color: white;
+}
+#hslice1 {
+    width : 900px;
+    height : 29px;
+    background-image: url('../images/Hub1_03.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice2 {
+    width : 187px;
+    height : 105px;
+    background-image: url('../images/Hub1_05.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice3 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 215px;
+    height : 105px;
+    background-image: url('../images/Hub1_06.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice4 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 93px;
+    height : 105px;
+    background-image: url('../images/Hub1_07.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice5 {
+    width : 405px;
+    height : 105px;
+    background-image: url('../images/Hub1_08.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice6 {
+    width : 900px;
+    height : 212px;
+    background-image: url('../images/Hub1_09.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice7 {
+    width : 104px;
+    height : 91px;
+    background-image: url('../images/Hub1_10.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice8 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 125px;
+    height : 91px;
+    background-image: url('../images/Hub1_11.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice9 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 153px;
+    height : 91px;
+    background-image: url('../images/Hub1_12.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice10 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 169px;
+    height : 91px;
+    background-image: url('../images/Hub1_13.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+
+}
+#hslice11 {
+    width : 19px;
+    height : 91px;
+    background-image: url('../images/Hub1_14.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice12 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 154px;
+    height : 91px;
+    background-image: url('../images/Hub1_15.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+
+}
+#hslice13 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 161px;
+    height : 91px;
+    background-image: url('../images/Hub1_16.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice14 {
+    width : 15px;
+    height : 91px;
+    background-image: url('../images/Hub1_17.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice15 {
+    width : 900px;
+    height : 78px;
+    background-image: url('../images/Hub1_18.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice16 {
+    width : 102px;
+    height : 97px;
+    background-image: url('../images/Hub1_19.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice17 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 132px;
+    height : 97px;
+    background-image: url('../images/Hub1_20.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice18 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 151px;
+    height : 97px;
+    background-image: url('../images/Hub1_21.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice19 {
+    width : 150px;
+    height : 97px;
+    background-image: url('../images/Hub1_22.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice20 {
+    width : 43px;
+    height : 97px;
+    background-image: url('../images/Hub1_23.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice21 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 150px;
+    height : 97px;
+    background-image: url('../images/Hub1_24.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice22 {
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+    width : 159px;
+    height : 97px;
+    background-image: url('../images/Hub1_25.png');
+    float: left;
+    padding:0;
+    display: block;
+    box-sizing: border-box;
+}
+#hslice23 {
+    width : 13px;
+    height : 97px;
+    background-image: url('../images/Hub1_26.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+#hslice24 {
+    width : 900px;
+    height : 20px;
+    background-image: url('../images/Hub1_29.png');
+    float: left;
+    margin:0;
+    padding:0;
+    display: block;
+}
+
+
+/********************************** DIV THAT CONTAINS GRAPH STYLING *********************************/
+#graph {
+    width : 900px;
+    height : 700px;
+    margin-left: 240px;
+    margin-top: 60px;
+    border : solid black 2px;
+    position : relative;
+    display : none;
+    font-size: 0;
+    background-color: red;
+}
+
+
+/********************************** ICONS WITHIN THE SLICES STYLING *********************************/
+.inner-element{
+    position: absolute;
+    width: 134px;
+    height: 104px;
+    background-image: url('../images/career.png');
+    }
+.frame {
+    height: 25px;      /* equals max image height */
+    width: 160px;
+    border: 1px solid red;
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    background-color: red;
+}
+img {
+    background-color: transparent;
+    vertical-align: middle;
+    max-height: 70px;
+    max-width: 160px;
+}
+#bilbo, #bilbo2, #bilbo3, #bilbo4, #bilbo6 {
+    visibility : hidden;
+}
+.present{
+    visibility : hidden;
+}
+
+
+/********************************** THE ICON POP-UP WINDOW STYLING *********************************/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (image) */
+.modal-content {
+{#    width: 600px;#}
+    margin: auto;
+    display: block;
+    max-height: 700px;
+    max-width: 500px;
+{#    width: 80%;#}
+{#    max-width: 700px;#}
+}
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-family: sans-serif;
+    font-size: 14pt;
+}
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+#legend {
+        display:none;
+        background-image: url('../images/legend.png');
+        border:2px solid black;
+        border-radius:2px;
+        height:30px;
+        width:547px;
+        margin:auto;
+}
+#legend ul {
+        list-style-type:none;
+        position:relative;
+        top:-10px;
+}
+#legend ul li {
+        float:left;
+        color:#000;
+        font-family:helvetica;
+        font-size:20px;
+        font-weight:bold;
+        padding:0px 35px;
+}
+#legend ul li:nth-child(1) {
+        padding-left:0px;
+}
+#legend ul li:nth-child(5) {
+        padding-right:0px;
+}

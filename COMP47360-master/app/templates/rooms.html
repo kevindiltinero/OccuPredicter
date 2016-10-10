@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Attendance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style_x.css') }}">
+  <script src="{{ url_for('static', filename='scripts/plotly-latest.min.js') }}"></script>
+
+  <style>
+	#parallax {
+		/* The image used */
+		background-image: url("../static/images/ucd1.jpg");
+
+		/* Set a specific height */
+		min-height: 300px;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+
+		/* Create the parallax scrolling effect */
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	#content {
+		color: #006dcc;
+	}
+
+	#big_letters {
+		font-family: League Gothic;
+		font-size: 80px;
+	}
+
+	#small_letters {
+		font-size: 20px;
+	}
+	
+	#chart1 {
+            width : 1000px;
+            height : 500px;
+        }
+
+	#chart2 {
+            width : 1000px;
+            height : 500px;
+        }
+
+  </style>
+</head>
+
+<body>
+
+<div id="parallax">
+	<div id="content">
+		<p><span id="big_letters">Team Harmony</span></p>
+		<p><span id="small_letters">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Measuring Room Occupancy Using WiFi</span></p>
+	</div>
+</div>
+
+<br><br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<form action="/rooms" method="POST">
+				<div class="form-group">
+					<label for="room">Select Room:</label>
+                                        <select name="room" onchange="this.form.submit()">
+                                                <option>---</option>
+						<option>B002</option>
+                                                <option>B003</option>
+                                                <option>B004</option>
+                                                <option>B106</option>
+                                                <option>B108</option>
+                                                <option>B109</option>
+                                        </select>
+
+				</div>
+			</form>
+		</div>
+	 
+		<div class="col-sm-6">
+			<div class="stay_right">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" style="float:right; margin-right:1cm;" type="button" data-toggle="dropdown" aria-label="Menu">
+					<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="http://52.209.212.197:5050/home">Home</a></li>
+						<li><a href="http://52.209.212.197:5050/events">Events</a></li>
+						<li><a href="http://52.209.212.197:5050/data">Data</a></li>
+						<li><a href="http://52.209.212.197:5050/modules">Modules</a></li>
+						<li><a href="http://52.209.212.197:5050/rooms">rooms</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br><br>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>Room: {{ room }}</h3>
+			<h4>Room Type: {{b_type}}</h4>		
+			<h4>Building: {{building}}</h4>
+			<h4>Capacity: {{capacity}}</h4>
+			<br>
+		</div>
+		
+		<div class="col-sm-12">
+			<div id="chart1"></div>
+		</div>
+	
+		<div class="col-sm-12">
+		  	<div id="chart2"></div>
+		</div>
+	
+		<div class="col-sm-12">
+		  	<div id="chart3"></div>
+		</div>
+		
+		<br><br>
+		<br><br>
+	
+	</div>
+</div>
+<br><br>
+
+<footer class="footer">
+	<div class="container">
+		<div class="credits">
+			<img src="{{ url_for('static',filename='images/UCD_logo.png') }}" />
+			<span style="float:right; margin-right:3cm;"> 
+				&nbsp;
+				<br>
+				<a href="mailto:andrew.sweeney.1@ucdconnect.ie">Team Harmony</a>
+			</span>
+		</div>
+	</div>
+</footer>
+<br>
+
+<script>
+
+function plot1(nums){
+	//Bar Plot
+	var layout = {
+		title: "Percentage Occupied",
+		font: {size: 18}
+	};
+		
+	var data = [ {
+		x: ['Empty', 'Quarter', 'Half', 'Two-Thirds', 'Full'],
+		y: nums,
+		type: 'bar',
+		text: ['Classroom is empty', 'Quarter Full', 'Half Full', 'Two Thirds', 'Full Up'],
+		marker: {
+		    color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)'],
+		    opacity: 0.6,
+		    line: {
+			color: ['rgb(8,48,107)', 'rgb(8,48,107)', 'rgb(8,48,107)', 'rgb(8,48,107)', 'rgb(8,48,107)'],
+			width: 2
+		    }
+		}
+            }];
+
+ Plotly.newPlot('chart1', data, layout);
+}
+
+function plot2() {
+	//Bubble Plot
+	 var layout = {
+                title: "Occupancy Each Hour By Weekday",
+                font: {size: 18},
+		showlegend: false,
+		margin:{l: 200} //sets the left margin to allow long label like "Wednesday" to be seen
+        };
+
+	var bubble1 = {
+              x: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+              y: ['Friday', 'Friday', 'Friday', 'Friday', 'Friday', 'Friday', 'Friday'],
+              mode: 'markers',
+              marker: {
+                color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)'],
+                opacity: [.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7],
+                size: [6, 40, 19, 40, 26, 26, 13]
+              }
+        };
+
+        var bubble2 = {
+              x: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+              y: ['Thursday', 'Thursday', 'Thursday', 'Thursday', 'Thursday', 'Thursday', 'Thursday'],
+              mode: 'markers',
+              marker: {
+                color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)'],
+                opacity: [.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7],
+                size: [13, 13, 40, 40, 19, 26, 6]
+              }
+        };
+
+        var bubble3 = {
+              x: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+              y: ['Wednesday', 'Wednesday', 'Wednesday', 'Wednesday', 'Wednesday', 'Wednesday', 'Wednesday'],
+              mode: 'markers',
+              marker: {
+                color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)'],
+                opacity: [.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7],
+                size: [6, 40, 19, 6, 6, 19, 19]
+              }
+        };
+
+	var bubble4 = {
+              x: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+              y: ['Tuesday', 'Tuesday', 'Tuesday', 'Tuesday', 'Tuesday', 'Tuesday', 'Tuesday'],
+              mode: 'markers',
+              marker: {
+                color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)'],
+                opacity: [.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7],
+                size: [13, 13, 40, 40, 19, 26, 6]
+              }
+        };
+
+        var bubble5 = {
+              x: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+              y: ['Monday', 'Monday', 'Monday', 'Monday', 'Monday', 'Monday'],
+              mode: 'markers',
+              marker: {
+                color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)', 'rgb(255, 65, 54)', 'rgb(100, 20, 95)'],
+                opacity: [.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7],
+                size: [6, 40, 19, 6, 6, 19, 19]
+              }
+        };
+
+var data = [bubble1, bubble2, bubble3, bubble4, bubble5];
+Plotly.newPlot('chart2', data, layout);
+
+}
+
+function plot3(){
+        //Line Graph
+         var layout = {
+                title: "Occupancy Over Time",
+                font: {size: 18}
+        };
+
+        var data = [ {
+              x: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+              y: [68, 42, 57, 35, 70, 25, 45, 69, 47],
+              type: 'scatter'
+         } ];
+
+Plotly.newPlot('chart3', data, layout);
+}
+
+//alert({{mylist|safe}});
+{% if mylist is defined %}
+	var nums = ['{{ mylist[0] }}', '{{ mylist[1] }}', '{{ mylist[2] }}', '{{ mylist[3] }}', '{{ mylist[4] }}'];
+	plot1(nums);
+	document.getElementById('chart1').style.display = "inline-block";
+
+	plot2();
+	document.getElementById('chart2').style.display = "inline-block";
+	
+	plot3();
+        document.getElementById('chart3').style.display = "inline-block";
+	
+{% else %}
+
+{% endif %}
+</script>
+
+</body>
+</html>
